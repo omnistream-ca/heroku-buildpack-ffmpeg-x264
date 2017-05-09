@@ -17,8 +17,7 @@ cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
 #git clone $DOWNLOAD_URL ffmpeg
 
-echo "exporting PATH and LIBRARY_PATH" | indent
+echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/ffmpeg/bin"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/ffmpeg/lib:vendor/faac/lib:vendor/libogg/lib:vendor/libvorbis/lib:vendor/mp3lame/lib:vendor/x264/lib"' >> $PROFILE_PATH
+echo 'export PATH="/app/vendor/ffmpeg/bin:$PATH"' > $PROFILE_PATH
